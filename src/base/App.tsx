@@ -8,6 +8,7 @@ import { FaCamera } from "react-icons/fa";
 
 function App() {
   const promptInputRef = useRef<HTMLInputElement>(null)
+  const chatBottom = useRef<HTMLDivElement>(null);
   const [bubbles, setBubbles] = useState<React.ReactNode[]>()
 
   type BubbleProps = {
@@ -40,7 +41,7 @@ function App() {
           <input
             type="text"
             ref={(me) => { promptInputRef.current = me }}
-            placeholder="Tell me anything..."
+            placeholder={"What's on your mind...?"}
             className="w-full placeholder:text-brown placeholder:opacity-70 focus:outline-none focus:ring-0"
           />
           <div className="flex self-end gap-3 text-cream text-xl text-center">
@@ -113,11 +114,17 @@ function App() {
     aiHandler.on("buffer", () => { updateBubbles("buffer") })
   })
 
+  // autoscroll chat bottom into view when messages exceed space 
+  useEffect(() => {
+    chatBottom.current?.scrollIntoView({ behavior: "smooth" })
+  })
+
   return (
     <div className="w-screen h-screen flex flex-col bg-page">
       <h1 className="text-center text-white font-serif font-bold text-5xl bg-blue z-10 p-4 shadow-lg shadow-blue/20">journal.ai</h1>
       <div className="flex-grow flex flex-col justify-start p-6 gap-4 overflow-y-scroll">
         {bubbles}
+        <div ref={(me) => { chatBottom.current = me }} />
       </div>
       <SendBar />
     </div>
