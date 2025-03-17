@@ -42,8 +42,6 @@ class AIHandler extends EventEmitter {
 
         // clean up buffer
         this.buffer.splice(0, this.buffer.length)
-
-        console.log() // newline at end
       })
       .catch((error) => {
         console.error("Error: ", error)

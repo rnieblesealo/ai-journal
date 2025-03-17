@@ -2,11 +2,14 @@
 @import "tailwindcss";
 
 @theme {
-  --color-peach: #fbbbad;
-  --color-pink: #ee8695;
-  --color-aqua: #4a7a96;
-  --color-lead: #333f58;
-  --color-charcoal: #292831;
+  --color-darkblue: #27344A;
+  --color-blue: #355180;
+  --color-lead: #525252;
+  --color-cream: #E9E5CB;
+  --color-dark-cream: #A7A48E;
+  --color-page: #C7C2A3;
+  --color-leather: #9E8B73;
+  --color-brown: #60503B;
 
   --font-inter: "Inter", sans-serif;
   --font-serif: "DM Serif Display", serif;
